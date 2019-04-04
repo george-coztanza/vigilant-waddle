@@ -6,6 +6,7 @@ const geocode = require("./../utils/geocode");
 const weather = require("./../utils/weather");
 const env = require("dotenv").config;
 const port = process.env.PORT;
+const private_ip = process.env.PRIVATE_IP;
 
 const app = express();
 
@@ -80,6 +81,6 @@ app.get("*",(req,res)=>{
 });
 
 //Setup express to listen on this port
-app.listen(port, () => {
+app.listen(port, private_ip, () => {
   console.log(`server is up on port ${port}`);
 });
